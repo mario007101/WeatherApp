@@ -9,18 +9,11 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
-    @State private var mapView = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 48.92, longitude: 19.64),
-        span: MKCoordinateSpan(latitudeDelta: 7, longitudeDelta: 7))
-    
-    let locality = [
-        Localite(name: "Banská Štiavnica",latitude: 48.4587,longitude: 18.8931),
-        Localite(name: "Košice", latitude: 48.7203, longitude: 21.2574)
-    ]
+    @StateObject private var contentModel = ContentViewModel()
     
     var body: some View {
         NavigationView{
-            Map(coordinateRegion: $mapView, annotationItems: locality) { localite in
+            Map(coordinateRegion: $contentModel.mapView, annotationItems: contentModel.locality) { localite in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: localite.latitude, longitude: localite.longitude)){
                     NavigationLink {
                         DetailView(locality: localite)
