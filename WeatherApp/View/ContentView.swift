@@ -21,7 +21,7 @@ struct ContentView: View {
                         VStack{
                             Image(systemName: "mappin.circle.fill") //SF symbol
                                 .resizable()
-                                .frame(width: 30, height: 30)
+                                .frame(width: 35, height: 35)
                                 .foregroundColor(.red)
                             
                             Text(localite.name)
