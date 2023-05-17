@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var contentModel = ContentViewModel()
+    @State private var finderText = ""
     
     var body: some View {
         NavigationView{
@@ -32,6 +33,13 @@ struct ContentView: View {
                 }
             }
             .ignoresSafeArea()
+            .searchable(text: $finderText, prompt: "Enter a location") {
+                Text("Enter a location")
+                    .foregroundColor(.white)
+                    .padding(8)
+                    .background(Color.black)
+                    .cornerRadius(8)
+            }
         }
     }
 }
