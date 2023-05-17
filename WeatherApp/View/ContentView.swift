@@ -20,14 +20,10 @@ struct ContentView: View {
                         DetailView(locality: localite)
                     } label: {
                         VStack{
-                            Image(systemName: "mappin.circle.fill") //SF symbol
+                            Image(systemName: "mappin.and.ellipse") //SF symbol
                                 .resizable()
-                                .frame(width: 35, height: 35)
-                                .foregroundColor(.red)
-                            
-                            Text(localite.name)
-                                .foregroundColor(.primary)
-                                .font(.caption)
+                                .frame(width: 25, height: 35)
+                                .foregroundColor(.black)
                         }
                     }
                 }
