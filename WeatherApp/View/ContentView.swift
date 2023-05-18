@@ -12,6 +12,7 @@ struct ContentView: View {
     
     @StateObject private var contentModel = ContentViewModel()
     @State private var finderText = ""
+    @StateObject private var villagesAndTownsReturn = DetailViewModel()
     
     var body: some View {
         NavigationView{
@@ -28,26 +29,32 @@ struct ContentView: View {
                         }
                     }
                 }
-                NavigationStack {
-                    List{
-                        ForEach(Localite, id: \.self) name in {
+            }
+            .ignoresSafeArea()
+            .searchable(text: $finderText, prompt: "Enter a location") {
+                ScrollView{
+                    VStack(alignment: .leading){
+                        ForEach(searchResult, id: \.self) { name in
                             NavigationLink {
                                 Text(name)
                             } label: {
                                 Text(name)
                             }
                         }
+                        
                     }
-                    .navigationTitle("Town / Villages")
                 }
-            }
-            .ignoresSafeArea()
-            .searchable(text: $finderText, prompt: "Enter a location") {
-                Text("Enter a location")
                     .foregroundColor(.white)
                     .padding(8)
                     .background(Color.black)
                     .cornerRadius(8)
+                var searchResult: [String] {
+                    if finderText.isEmpty {
+                        return villagesAndTownsReturn.allTownsAndVillages
+                    } else {
+                        return villagesAndTownsReturn.allTownsAndVillages.filter{ $0.contains(finderText)}
+                    }
+                }
             }
         }
     }
