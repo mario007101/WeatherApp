@@ -9,6 +9,7 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject private var contentModel = ContentViewModel()
     @State private var finderText = ""
     
@@ -26,6 +27,18 @@ struct ContentView: View {
                                 .foregroundColor(.black)
                         }
                     }
+                }
+                NavigationStack {
+                    List{
+                        ForEach(Localite, id: \.self) name in {
+                            NavigationLink {
+                                Text(name)
+                            } label: {
+                                Text(name)
+                            }
+                        }
+                    }
+                    .navigationTitle("Town / Villages")
                 }
             }
             .ignoresSafeArea()
