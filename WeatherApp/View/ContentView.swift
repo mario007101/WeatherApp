@@ -48,10 +48,13 @@ struct ContentView: View {
                     .padding(8)
                     .background(Color.black)
                     .cornerRadius(8)
+                
                 var searchResult: [String] {
                     if finderText.isEmpty {
                         return villagesAndTownsReturn.allTownsAndVillages
-                    } else {
+                    }
+                    //Need to finish to search also with lowercased characters
+                    else {
                         return villagesAndTownsReturn.allTownsAndVillages.filter{ $0.contains(finderText)}
                     }
                 }
