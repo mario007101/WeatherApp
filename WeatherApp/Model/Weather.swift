@@ -1,9 +1,3 @@
-//
-//  Weather.swift
-//  WeatherApp
-//
-//  Created by Mário Markovič on 16/05/2023.
-//
 
 struct WeatherMain: Codable {
     let lat: Double

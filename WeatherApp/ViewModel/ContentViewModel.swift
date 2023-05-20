@@ -1,20 +1,13 @@
-//
-//  ContentViewModel.swift
-//  WeatherApp
-//
-//  Created by Mário Markovič on 16/05/2023.
-//
-
 import Foundation
 import MapKit
 
 class ContentViewModel: ObservableObject {
-    
     @Published var mapView = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 48.92, longitude: 19.64),
         span: MKCoordinateSpan(latitudeDelta: 7, longitudeDelta: 7))
+    @Published var textResult: DetailViewModel?
     
-    let locality = [
+    var locality = [
         Localite(name: "Banská Bystrica",latitude: 48.7362,longitude: 19.1361),
         Localite(name: "Košice", latitude: 48.7203, longitude: 21.2574),
         Localite(name: "Nitra",latitude: 48.3061,longitude: 18.0763),
@@ -25,4 +18,11 @@ class ContentViewModel: ObservableObject {
         Localite(name: "Žilina", latitude: 49.2231, longitude: 18.7394)
     ]
     
+    //Have to finish to track weather from searched text
+    /*init() {
+        if let textResult = textResult {
+            let newLocalite = Localite(name: "\(textResult.allTownsAndVillages)", latitude: 48.0, longitude: 19.0)
+            locality.append(newLocalite)
+        }
+    }*/
 }

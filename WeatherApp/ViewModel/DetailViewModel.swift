@@ -1,10 +1,3 @@
-//
-//  DetailViewModel.swift
-//  WeatherApp
-//
-//  Created by Mário Markovič on 16/05/2023.
-//
-
 import Foundation
 
 class DetailViewModel: ObservableObject{

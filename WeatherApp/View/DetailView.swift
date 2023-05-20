@@ -1,10 +1,3 @@
-//
-//  DetailView.swift
-//  WeatherApp
-//
-//  Created by Mário Markovič on 16/05/2023.
-//
-
 import SwiftUI
 
 struct DetailView: View {
