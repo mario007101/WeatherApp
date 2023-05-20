@@ -32,6 +32,7 @@ struct ContentView: View {
             }
             .ignoresSafeArea()
             .searchable(text: $finderText, prompt: "Enter a location") {
+                
                 ScrollView{
                     VStack(alignment: .leading){
                         ForEach(searchResult, id: \.self) { name in
@@ -40,8 +41,8 @@ struct ContentView: View {
                             } label: {
                                 Text(name)
                             }
+                            Divider()
                         }
-                        
                     }
                 }
                     .foregroundColor(.white)
