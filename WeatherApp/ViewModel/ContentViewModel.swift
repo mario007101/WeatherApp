@@ -5,7 +5,6 @@ class ContentViewModel: ObservableObject {
     @Published var mapView = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 48.92, longitude: 19.64),
         span: MKCoordinateSpan(latitudeDelta: 7, longitudeDelta: 7))
-    @Published var textResult: DetailViewModel?
     
     var locality = [
         Localite(name: "Banská Bystrica",latitude: 48.7362,longitude: 19.1361),
@@ -17,12 +16,4 @@ class ContentViewModel: ObservableObject {
         Localite(name: "Prešov", latitude: 49.0018, longitude: 21.2393),
         Localite(name: "Žilina", latitude: 49.2231, longitude: 18.7394)
     ]
-    
-    //Have to finish to track weather from searched text
-    /*init() {
-        if let textResult = textResult {
-            let newLocalite = Localite(name: "\(textResult.allTownsAndVillages)", latitude: 48.0, longitude: 19.0)
-            locality.append(newLocalite)
-        }
-    }*/
 }

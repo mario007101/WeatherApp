@@ -31,7 +31,13 @@ struct ContentView: View {
                     VStack(alignment: .leading){
                         ForEach(searchResult, id: \.self) { name in
                             NavigationLink {
-                                Text(name)
+                                //Need to finish to search for specific lan and lon
+                                let latitudeOfSearchedTown: Double = 0.0
+                                let longitudeOfSearchTown: Double = 0.0
+                                
+                                let newLocation = Localite(name: name, latitude: latitudeOfSearchedTown, longitude: longitudeOfSearchTown)
+                                
+                                DetailView(locality: newLocation)
                             } label: {
                                 Text(name)
                             }
