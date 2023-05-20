@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  WeatherApp
-//
-//  Created by Mário Markovič on 16/05/2023.
-//
-
 import MapKit
 import SwiftUI
 
@@ -18,6 +11,7 @@ struct ContentView: View {
         NavigationView{
             Map(coordinateRegion: $contentModel.mapView, annotationItems: contentModel.locality) { localite in
                 MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: localite.latitude, longitude: localite.longitude)){
+                    
                     NavigationLink {
                         DetailView(locality: localite)
                     } label: {
@@ -51,12 +45,14 @@ struct ContentView: View {
                     .cornerRadius(8)
                 
                 var searchResult: [String] {
+                    let lowercasedText = finderText.prefix(1).lowercased()
+                    
                     if finderText.isEmpty {
                         return villagesAndTownsReturn.allTownsAndVillages
-                    }
-                    //Need to finish to search also with lowercased characters
-                    else {
-                        return villagesAndTownsReturn.allTownsAndVillages.filter{ $0.contains(finderText)}
+                    } else if lowercasedText == finderText.prefix(1) {
+                        return villagesAndTownsReturn.allTownsAndVillages.filter{ $0.lowercased().contains(finderText)}
+                    } else {
+                        return villagesAndTownsReturn.allTownsAndVillages.filter { $0.contains(finderText)}
                     }
                 }
             }
